@@ -23,7 +23,7 @@ Feel free to [contact me](mailto:ozeuthgatum@gmail.com) if you have any problems
 1. Put the images you wish to repair into the "demo_inpaint" folder.
   - Give them the shared suffix, "opening" (e.g., `demo_inpaint\1_opening.png`)
 2. Create masks for the images.
-  - Masks should hold information as follows,
+  - Masks should hold information as follows,  
     Red area = area you wish to inpaint  
     Cyan (green+blue) area = conditioning area. If in doubt, set it to a 3 pixel border around the red area  
     blue area = remaining known area  
