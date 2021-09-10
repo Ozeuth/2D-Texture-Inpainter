@@ -58,7 +58,7 @@ class Inpainter():
     result = np.zeros(image.shape)
     for x in range(mcw.shape[0]):
       for y in range(mcw.shape[1]):
-        if (mcw[x, y, 0] > self.threshold):
+        if (mcw[x, y, 0] > self.threshold and mcw[x, y, 3] > self.threshold):
           result[x, y] = fill[x, y]
           if alpha_dim: result[x, y, alpha_dim] = 255
         else:
@@ -173,7 +173,7 @@ class Inpainter():
       z = 0
       for x in range(mcw.shape[0]):
         for y in range(mcw.shape[1]):
-          if mcw[x, y, 1] > self.threshold and mcw[x, y, 3] < self.threshold:
+          if mcw[x, y, 1] > self.threshold and mcw[x, y, 3] > self.threshold:
             u_cond[z] = v[x, y]
             F_cond[z] = F[x, y]
             mapping[z] = [x, y]
@@ -203,7 +203,7 @@ class Inpainter():
         z = 0
         for x in range(mcw.shape[0]):
           for y in range(mcw.shape[1]):
-            if mcw[x, y, 1] > self.threshold and mcw[x, y, 3] < self.threshold:
+            if mcw[x, y, 1] > self.threshold and mcw[x, y, 3] > self.threshold:
               psi_1_[x, y, dim] = psi_1[z,dim]
               psi_2_[x, y, dim] = psi_2[z,dim]
               z += 1
